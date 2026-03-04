@@ -1,0 +1,803 @@
+/* ─────────────────────────────────────────
+   CreateReviewForm.css
+   Scoped with .crf- prefix to avoid
+   conflicts with your global App.css
+───────────────────────────────────────── */
+
+.crf-page-wrapper {
+    min-height: 100vh;
+    background: #f3f4f6;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.crf-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 36px 24px 60px;
+}
+
+/* ── Hero Header ── */
+.crf-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 28px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 20px 24px;
+}
+
+.crf-hero-left,
+.crf-hero-right {
+    flex-shrink: 0;
+}
+
+.crf-hero-center {
+    flex: 1;
+    text-align: center;
+}
+
+.crf-page-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px;
+}
+
+.crf-page-sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Client logo upload */
+.crf-logo-upload {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    border: 2px dashed #d8b4fe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    overflow: hidden;
+}
+
+.crf-logo-upload:hover {
+    background: #ede9fe;
+    border-color: #a78bfa;
+}
+
+.crf-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.crf-camera-icon {
+    font-size: 20px;
+    color: #7c3aed;
+}
+
+.crf-logo-upload span {
+    font-size: 10px;
+    color: #7c3aed;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Brand logo right */
+.crf-brand-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+/* ── Buttons ── */
+.crf-btn-primary {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 9px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.crf-btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.crf-btn-outline {
+    background: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 9px 18px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.crf-btn-outline:hover {
+    border-color: #9ca3af;
+    color: #111827;
+}
+
+/* ── Success Banner ── */
+.crf-success-banner {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #6ee7b7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* ── Card ── */
+.crf-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+.crf-card-header {
+    background: #1e3a5f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    padding: 11px 20px;
+}
+
+.crf-card-subtext {
+    font-size: 12px;
+    color: #9ca3af;
+    padding: 10px 20px 0;
+    margin: 0;
+}
+
+/* ── Info Grid ── */
+.crf-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 16px 24px;
+}
+
+/* ── Field Group ── */
+.crf-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.crf-field-group label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #374151;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.crf-field-group input[type="text"],
+.crf-field-group input[type="date"],
+.crf-field-group textarea {
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #111827;
+    background: #f9fafb;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.crf-field-group input:focus,
+.crf-field-group textarea:focus {
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.crf-field-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* ── Qualities List ── */
+.crf-qualities-list {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.crf-quality-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.crf-quality-item:last-child {
+    border-bottom: none;
+}
+
+.crf-quality-item--custom {
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.crf-quality-label {
+    font-size: 13.5px;
+    color: #1f2937;
+    font-weight: 500;
+    min-width: 200px;
+    flex: 1;
+}
+
+.crf-custom-quality-input {
+    border: 1px dashed #d1d5db;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #6b7280;
+    background: #fafafa;
+    outline: none;
+    min-width: 200px;
+    flex: 1;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.crf-custom-quality-input:focus {
+    border-color: #2563eb;
+    border-style: solid;
+    background: #fff;
+    color: #111827;
+}
+
+/* ── Rating Chips ── */
+.crf-rating-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.crf-rating-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1.5px solid #d1d5db;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+}
+
+.crf-rating-chip input[type="radio"] {
+    display: none;
+}
+
+.crf-rating-chip:hover:not(.crf-disabled) {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.crf-rating-chip.crf-selected-unsatisfactory {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+    font-weight: 600;
+}
+
+.crf-rating-chip.crf-selected-satisfactory {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #fff;
+    font-weight: 600;
+}
+
+.crf-rating-chip.crf-selected-good {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+    font-weight: 600;
+}
+
+.crf-rating-chip.crf-selected-excellent {
+    background: #10b981;
+    border-color: #10b981;
+    color: #fff;
+    font-weight: 600;
+}
+
+.crf-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ── Goals / Feedback card padding ── */
+.crf-card>.crf-field-group {
+    padding: 0 20px;
+}
+
+.crf-card>.crf-field-group:first-of-type {
+    padding-top: 16px;
+}
+
+.crf-card>.crf-field-group:last-of-type {
+    padding-bottom: 20px;
+}
+
+/* ── Signature Row ── */
+.crf-signature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 20px;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 4px;
+}
+
+.crf-sig-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.crf-sig-block label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.crf-sig-block input[type="date"] {
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #f9fafb;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.crf-sig-block input[type="date"]:focus {
+    border-color: #2563eb;
+    background: #fff;
+}
+
+.crf-sig-line {
+    border-bottom: 1.5px solid #9ca3af;
+    margin-top: 24px;
+}
+
+.crf-sig-caption {
+    font-size: 11px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* ── Form Footer ── */
+.crf-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 0;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.crf-footer-note {
+    font-size: 12px;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.crf-footer-btns {
+    display: flex;
+    gap: 10px;
+}
+
+/* Selected employee confirmation banner */
+.crf-emp-selected-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #1e40af;
+    margin: 12px 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.crf-emp-banner-clear {
+    margin-left: auto;
+    background: none;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    color: #2563eb;
+    font-size: 12px;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.crf-emp-banner-clear:hover {
+    background: #dbeafe;
+}
+
+/* Employee option meta line (ID · position) */
+.crf-emp-option-meta {
+    font-size: 11.5px;
+    color: #9ca3af;
+    margin-top: 1px;
+}
+
+/* Highlight currently selected option in dropdown */
+.crf-emp-option--selected {
+    background: #eff6ff;
+}
+
+/* ── Employee search dropdown (in form) ── */
+.crf-emp-search-wrapper {
+    position: relative;
+    z-index: 100;
+}
+
+.crf-emp-search-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 32px;
+}
+
+.crf-emp-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #9ca3af;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.crf-emp-clear:hover {
+    color: #ef4444;
+}
+
+.crf-emp-dropdown {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+}
+
+.crf-emp-dropdown::-webkit-scrollbar {
+    width: 5px;
+}
+
+.crf-emp-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.crf-emp-dropdown::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 99px;
+}
+
+.crf-emp-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.crf-emp-option:hover {
+    background: #f1f5f9;
+}
+
+.crf-emp-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.crf-emp-option-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.crf-emp-option-role {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 1px;
+}
+
+.crf-emp-empty {
+    padding: 14px;
+    font-size: 13px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* Read-only auto-filled inputs */
+.crf-input-readonly {
+    background: #f1f5f9 !important;
+    color: #374151 !important;
+    cursor: default !important;
+    border-color: #e5e7eb !important;
+}
+
+/* Client name below logo in hero */
+.crf-client-name {
+    font-size: 11px;
+    color: #6b7280;
+    text-align: center;
+    margin: 5px 0 0;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Hero logo display (non-editable, unlike AddClient upload) */
+.crf-logo-display {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    border: 1.5px solid #d8b4fe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    overflow: hidden;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .crf-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .crf-quality-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .crf-signature-row {
+        grid-template-columns: 1fr;
+    }
+
+    .crf-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .crf-rating-chip {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+}
+
+/* ── Employee search dropdown ── */
+.crf-emp-search-wrapper {
+    position: relative;
+}
+
+.crf-emp-search-wrapper input {
+    width: 100%;
+    padding: 9px 36px 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #f9fafb;
+    color: #111827;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.crf-emp-search-wrapper input:focus {
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.crf-emp-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #9ca3af;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.crf-emp-clear:hover {
+    color: #ef4444;
+}
+
+.crf-emp-dropdown {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    z-index: 300;
+}
+
+.crf-emp-option {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.crf-emp-option:hover {
+    background: #f1f5f9;
+}
+
+.crf-emp-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.crf-emp-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.crf-emp-role {
+    font-size: 11.5px;
+    color: #9ca3af;
+    margin-top: 1px;
+}
+
+.crf-emp-empty {
+    padding: 14px;
+    font-size: 13px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* Read-only auto-filled fields */
+.crf-readonly-input {
+    background: #f0f9ff !important;
+    border-color: #bae6fd !important;
+    color: #0369a1 !important;
+    cursor: default;
+}
+
+/* Logo display (read-only, no upload on review form) */
+.crf-logo-display {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    border: 2px solid #e9d5ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.crf-logo-display span {
+    font-size: 10px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+/* Loading state */
+.crf-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 16px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.crf-spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: crf-spin 0.7s linear infinite;
+}
+
+@keyframes crf-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
