@@ -43,7 +43,7 @@ router.post("/logout", (req, res) => {
 // 🔹 Login API with JWT
 router.post('/verifyLogin', (req, res) => {
   const { email, password } = req.body;
-  const query = 'SELECT emp_id, account_pass, app_dForm FROM employee WHERE emp_mail_id = ?  AND deleted_by IS NULL ';
+  const query = 'SELECT emp_id, account_pass FROM employee WHERE emp_mail_id = ?  AND deleted_by IS NULL ';
 
   db.query(query, [email], (err, results) => {
     if (err) {
@@ -53,9 +53,6 @@ router.post('/verifyLogin', (req, res) => {
 
     if (results.length > 0) {
       const storedHashedPassword = results[0].account_pass;
-
-      if (results[0].app_dForm === 0)
-        return res.status(401).json({ message: "Access denied. You don't have access for dForms." });
 
       // 🔹 Check if the password is empty (Google sign-in user)
       if (!storedHashedPassword || storedHashedPassword.trim() === "") {
@@ -104,7 +101,7 @@ router.get('/get-user-profile', verifyJWT, (req, res) => {
 
   const query = `
         SELECT emp_id, emp_first_name, emp_last_name, emp_profile_img
-        FROM dadmin.employee WHERE emp_id = ? AND deleted_by IS NULL AND app_dForm = '1';
+        FROM dadmin.employee WHERE emp_id = ? AND deleted_by IS NULL;
     `;
 
   db.query(query, [req.emp_id], (err, results) => {

@@ -34,10 +34,12 @@ app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 // ✅ Import Routes Correctly
 const loginRoutes = require('./src/backend_routes/Login_server');
 const clientConfigRoutes = require('./src/backend_routes/Client_config_server');
+const employeeReviewRoutes = require('./src/backend_routes/Employee_review_server');
 
 // ✅ Use Routes
 app.use('/api/login', loginRoutes.router);
 app.use('/api/client-config', clientConfigRoutes.router);
+app.use('/api/review', employeeReviewRoutes.router);
 
 const path = require('path');
 app.use('/client_logo_uploads', express.static(path.join(__dirname, 'client_logo_uploads')));

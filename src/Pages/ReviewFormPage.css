@@ -1,0 +1,805 @@
+/* ─────────────────────────────────────────
+   ReviewFormPage.css
+   Scoped with .rfp- prefix
+   Works for both preview and published modes
+───────────────────────────────────────── */
+
+.rfp-page-wrapper {
+    min-height: 100vh;
+    background: #f3f4f6;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ══════════════════════════════════════════
+   ACTION BAR
+   Preview:   back (48px) | hero (flex:1) | share (48px)
+   Published: hero fills full container width
+══════════════════════════════════════════ */
+.rfp-action-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* Constrain to same total width as hero+buttons so hero === container width */
+    max-width: calc(860px + 48px + 48px + 24px);
+    margin: 0 auto;
+    padding: 16px 24px;
+}
+
+/* Published: hero only, no side buttons — match container exactly */
+.rfp-action-bar--published {
+    max-width: 860px;
+    padding: 16px 24px;
+}
+
+/* ── Back button ── */
+.rfp-back-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 48px;
+    padding: 8px 4px;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+    text-align: center;
+    user-select: none;
+}
+
+.rfp-back-link svg {
+    font-size: 15px;
+}
+
+.rfp-back-link:hover {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+/* ── Share button ── */
+.rfp-share-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #2563eb;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 8px 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: center;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.rfp-share-btn svg {
+    font-size: 15px;
+}
+
+.rfp-share-btn:hover {
+    background: #dbeafe;
+    border-color: #93c5fd;
+}
+
+/* ── Hero card ── */
+.rfp-hero {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 20px 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.rfp-hero-left,
+.rfp-hero-right {
+    flex-shrink: 0;
+}
+
+.rfp-hero-center {
+    flex: 1;
+    text-align: center;
+}
+
+.rfp-page-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 4px;
+}
+
+.rfp-page-sub {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Logo display */
+.rfp-logo-display {
+    width: 72px;
+    height: 72px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    border: 1.5px solid #d8b4fe;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.rfp-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.rfp-camera-icon {
+    font-size: 20px;
+    color: #7c3aed;
+}
+
+.rfp-logo-display span {
+    font-size: 10px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+.rfp-client-name {
+    font-size: 11px;
+    color: #6b7280;
+    text-align: center;
+    margin: 5px 0 0;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rfp-brand-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+/* ══════════════════════════════════════════
+   MAIN CONTAINER
+══════════════════════════════════════════ */
+.rfp-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+}
+
+/* Published mode notice bar */
+.rfp-published-notice {
+    background: #fefce8;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #92400e;
+    margin-bottom: 20px;
+}
+
+/* ── Buttons ── */
+.rfp-btn-primary {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+.rfp-btn-primary:hover:not(:disabled) {
+    background: #1d4ed8;
+}
+
+.rfp-btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.rfp-btn-outline {
+    background: white;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 10px 20px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.rfp-btn-outline:hover:not(:disabled) {
+    border-color: #9ca3af;
+    color: #111827;
+}
+
+.rfp-btn-outline:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ── Card ── */
+.rfp-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+.rfp-card-header {
+    background: #1e3a5f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    padding: 11px 20px;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 10px;
+}
+
+.rfp-card-subtext {
+    font-size: 12px;
+    color: #9ca3af;
+    padding: 10px 20px 0;
+    margin: 0;
+}
+
+/* ── Info Grid ── */
+.rfp-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    gap: 16px 24px;
+    position: relative;
+}
+
+/* ── Field Group ── */
+.rfp-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+}
+
+.rfp-field-group label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #374151;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.rfp-field-group input[type="text"],
+.rfp-field-group input[type="date"],
+.rfp-field-group textarea {
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #111827;
+    background: #f9fafb;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rfp-field-group input:focus,
+.rfp-field-group textarea:focus {
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.rfp-field-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* Read-only / locked inputs */
+.rfp-input-readonly {
+    background: #f1f5f9 !important;
+    color: #374151 !important;
+    cursor: default !important;
+    border-color: #e5e7eb !important;
+}
+
+/* Preview: all disabled inputs get a subtler tint */
+.rfp-page-wrapper input:disabled:not(.rfp-input-readonly),
+.rfp-page-wrapper textarea:disabled {
+    background: #f8fafc;
+    color: #6b7280;
+    border-color: #e5e7eb;
+    cursor: default;
+}
+
+/* Goals / Feedback card direct children padding */
+.rfp-card>.rfp-field-group {
+    padding: 0 20px;
+}
+
+.rfp-card>.rfp-field-group:first-of-type {
+    padding-top: 16px;
+}
+
+.rfp-card>.rfp-field-group:last-of-type {
+    padding-bottom: 20px;
+}
+
+/* ── Qualities List ── */
+.rfp-qualities-list {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.rfp-quality-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.rfp-quality-item:last-child {
+    border-bottom: none;
+}
+
+.rfp-quality-item--custom {
+    align-items: flex-start;
+    padding-top: 10px;
+}
+
+.rfp-quality-label {
+    font-size: 13.5px;
+    color: #1f2937;
+    font-weight: 500;
+    min-width: 200px;
+    flex: 1;
+}
+
+.rfp-custom-quality-input {
+    border: 1px dashed #d1d5db;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #6b7280;
+    background: #fafafa;
+    outline: none;
+    min-width: 200px;
+    flex: 1;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.rfp-custom-quality-input:focus {
+    border-color: #2563eb;
+    border-style: solid;
+    background: #fff;
+    color: #111827;
+}
+
+/* ── Rating Chips ── */
+.rfp-rating-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.rfp-rating-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 13px;
+    border-radius: 999px;
+    border: 1.5px solid #d1d5db;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    background: #f9fafb;
+    cursor: pointer;
+    transition: all 0.18s;
+    user-select: none;
+}
+
+.rfp-rating-chip input[type="radio"] {
+    display: none;
+}
+
+.rfp-rating-chip:hover:not(.rfp-disabled) {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.rfp-rating-chip.rfp-selected-unsatisfactory {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: #fff;
+    font-weight: 600;
+}
+
+.rfp-rating-chip.rfp-selected-satisfactory {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    color: #fff;
+    font-weight: 600;
+}
+
+.rfp-rating-chip.rfp-selected-good {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+    font-weight: 600;
+}
+
+.rfp-rating-chip.rfp-selected-excellent {
+    background: #10b981;
+    border-color: #10b981;
+    color: #fff;
+    font-weight: 600;
+}
+
+.rfp-disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ── Signature Row ── */
+.rfp-signature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 20px;
+    border-top: 1px solid #f3f4f6;
+    margin-top: 4px;
+}
+
+.rfp-sig-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rfp-sig-block label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #374151;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.rfp-sig-line {
+    border-bottom: 1.5px solid #9ca3af;
+    margin-top: 24px;
+}
+
+.rfp-sig-caption {
+    font-size: 11px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* ── Form Footer ── */
+.rfp-form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 0;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.rfp-footer-note {
+    font-size: 12px;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+.rfp-footer-btns {
+    display: flex;
+    gap: 10px;
+}
+
+/* Quarter info notice */
+.rfp-quarter-notice {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #0369a1;
+    margin-bottom: 16px;
+}
+
+/* Already-reviewed employee row in dropdown */
+.rfp-emp-option--reviewed {
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
+
+.rfp-emp-option--reviewed:hover {
+    background: #fafafa !important;
+}
+
+/* "✓ This quarter" tag on reviewed employees */
+.rfp-emp-reviewed-tag {
+    flex-shrink: 0;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: #059669;
+    background: #d1fae5;
+    border: 1px solid #6ee7b7;
+    border-radius: 4px;
+    padding: 2px 7px;
+    white-space: nowrap;
+}
+
+/* Preview badge */
+.rfp-preview-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* ── Employee selected banner ── */
+.rfp-emp-selected-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #1e40af;
+    margin: 12px 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.rfp-emp-banner-clear {
+    margin-left: auto;
+    background: none;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    color: #2563eb;
+    font-size: 12px;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.rfp-emp-banner-clear:hover {
+    background: #dbeafe;
+}
+
+/* ── Employee search dropdown ── */
+.rfp-emp-search-wrapper {
+    position: relative;
+    z-index: 100;
+}
+
+.rfp-emp-search-wrapper:focus-within {
+    z-index: 1000;
+}
+
+.rfp-emp-search-wrapper input {
+    width: 100%;
+    padding: 9px 36px 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #f9fafb;
+    color: #111827;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.rfp-emp-search-wrapper input:focus {
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.rfp-emp-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: #9ca3af;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.15s;
+}
+
+.rfp-emp-clear:hover {
+    color: #ef4444;
+}
+
+.rfp-emp-dropdown {
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 9999;
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+}
+
+.rfp-emp-dropdown::-webkit-scrollbar {
+    width: 5px;
+}
+
+.rfp-emp-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.rfp-emp-dropdown::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 99px;
+}
+
+.rfp-emp-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.rfp-emp-option:hover {
+    background: #f1f5f9;
+}
+
+.rfp-emp-option--selected {
+    background: #eff6ff;
+}
+
+.rfp-emp-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.rfp-emp-option-name {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: #111827;
+}
+
+.rfp-emp-option-meta {
+    font-size: 11.5px;
+    color: #9ca3af;
+    margin-top: 1px;
+}
+
+.rfp-emp-empty {
+    padding: 14px;
+    font-size: 13px;
+    color: #9ca3af;
+    text-align: center;
+}
+
+/* ── Loading / auth check spinner ── */
+.rfp-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    gap: 16px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.rfp-spinner {
+    width: 34px;
+    height: 34px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: rfp-spin 0.7s linear infinite;
+}
+
+@keyframes rfp-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .rfp-action-bar {
+        padding: 12px 16px;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .rfp-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rfp-quality-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rfp-signature-row {
+        grid-template-columns: 1fr;
+    }
+
+    .rfp-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .rfp-rating-chip {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    .rfp-form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

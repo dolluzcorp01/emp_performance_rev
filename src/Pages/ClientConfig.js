@@ -258,10 +258,10 @@ const ClientConfig = () => {
                     {isEditMode && (
                         <button
                             className="cc-review-btn"
-                            onClick={() => navigate(`/create-review/${clientId}`)}
+                            onClick={() => navigate(`/preview-form/${clientId}`)}
                         >
                             <FaClipboardList />
-                            Create Review Form
+                            Preivew Review Form
                         </button>
                     )}
                 </div>

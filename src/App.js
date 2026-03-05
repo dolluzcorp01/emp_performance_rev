@@ -3,25 +3,25 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Login from "./Pages/Login";
 import Dashboard from "./Pages/Dashboard";
 import ClientConfig from "./Pages/ClientConfig";
-import CreateReviewForm from "./Pages/CreateReviewForm";
+import ReviewFormPage from "./Pages/ReviewFormPage";
 
 function App() {
   return (
     <Routes>
-      {/* Login */}
+      {/* Auth */}
       <Route path="/" element={<Navigate to="/login" />} />
       <Route path="/login" element={<Login />} />
 
-      {/* Dashboard */}
+      {/* Internal */}
       <Route path="/dashboard" element={<Dashboard />} />
-
-      {/* Client configuration */}
       <Route path="/add-client" element={<ClientConfig />} />
       <Route path="/client/:clientId" element={<ClientConfig />} />
 
-      {/* Create Review Form */}
-      <Route path="/create-review" element={<CreateReviewForm />} />
-      <Route path="/create-review/:clientId" element={<CreateReviewForm />} />
+      {/* Preview — internal staff only, back + share visible, form is read-only */}
+      <Route path="/preview-form/:clientId" element={<ReviewFormPage mode="preview" />} />
+
+      {/* Published — employee-facing, login required, submit & close / submit & continue */}
+      <Route path="/review-form/:clientId" element={<ReviewFormPage mode="published" />} />
     </Routes>
   );
 }

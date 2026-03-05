@@ -30,7 +30,7 @@ const Header = () => {
             const data = await response.json();
             setProfileDetails(data);
         } catch (error) {
-            console.error(error);
+            navigate("/login");
         }
     };
 
