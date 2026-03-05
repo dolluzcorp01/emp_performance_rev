@@ -164,6 +164,7 @@
     letter-spacing: 0.7px;
     text-transform: uppercase;
     padding: 11px 20px;
+    margin-bottom: 10px;
 }
 
 .crf-card-subtext {
@@ -179,6 +180,7 @@
     grid-template-columns: 1fr 1fr;
     padding: 20px;
     gap: 16px 24px;
+    position: relative;
 }
 
 /* ── Field Group ── */
@@ -186,6 +188,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    position: relative;
 }
 
 .crf-field-group label {
@@ -480,6 +483,11 @@
 .crf-emp-search-wrapper {
     position: relative;
     z-index: 100;
+}
+
+/* When dropdown is open, lift this wrapper above all sibling fields */
+.crf-emp-search-wrapper:focus-within {
+    z-index: 1000;
 }
 
 .crf-emp-search-wrapper input {

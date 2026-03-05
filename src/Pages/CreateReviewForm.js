@@ -345,16 +345,23 @@ const CreateReviewForm = () => {
 
                             <div className="crf-field-group">
                                 <label>Last Review Date</label>
-                                <input type="date" value={form.lastReviewDate}
+                                <input type="date"
+                                    value={form.lastReviewDate}
+                                    onClick={(e) => {
+                                        e.target.showPicker?.();
+                                    }}
                                     onChange={(e) => handleField("lastReviewDate", e.target.value)} />
                             </div>
 
                             <div className="crf-field-group">
                                 <label>Today's Date</label>
-                                <input type="date" value={form.todayDate}
-                                    onChange={(e) => handleField("todayDate", e.target.value)} />
+                                <input
+                                    type="date"
+                                    disabled
+                                    value={new Date().toISOString().split("T")[0]}
+                                    onChange={(e) => handleField("todayDate", e.target.value)}
+                                />
                             </div>
-
                         </div>
                     </div>
 
@@ -418,17 +425,22 @@ const CreateReviewForm = () => {
                         </div>
                         <div className="crf-signature-row">
                             <div className="crf-sig-block">
-                                <label>HR Signature</label>
-                                <input type="text" value={form.hrSignDate}
-                                    onChange={(e) => handleField("hrSignDate", e.target.value)} />
-                                <div className="crf-sig-line" />
+                                <div className="crf-field-group">
+                                    <label>HR Signature</label>
+                                    <input type="text" value={form.hrSignDate}
+                                        onChange={(e) => handleField("hrSignDate", e.target.value)} />
+                                    <div className="crf-sig-line" />
+                                </div>
                                 <span className="crf-sig-caption">HR Signature</span>
                             </div>
                             <div className="crf-sig-block">
-                                <label>Reviewer Signature</label>
-                                <input type="text" value={form.reviewerSignDate}
-                                    onChange={(e) => handleField("reviewerSignDate", e.target.value)} />
-                                <div className="crf-sig-line" />
+                                <div className="crf-field-group">
+                                    <label>Reviewer Signature</label>
+                                    <input type="text"
+                                        value={form.reviewerName}
+                                        onChange={(e) => handleField("reviewerSignDate", e.target.value)} />
+                                    <div className="crf-sig-line" />
+                                </div>
                                 <span className="crf-sig-caption">Reviewer Signature</span>
                             </div>
                         </div>
